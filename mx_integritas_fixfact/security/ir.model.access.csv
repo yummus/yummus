@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mx_integritas_fixfact_mx_integritas_fixfact,mx_integritas_fixfact.mx_integritas_fixfact,model_mx_integritas_fixfact_mx_integritas_fixfact,base.group_user,1,1,1,1
