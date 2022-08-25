@@ -19,5 +19,6 @@ def _uninstall_hook(cr, registry):
         if xml_id == 'sale.sale_order_personal_rule':
         	act_window.domain_force = "['|',('user_id','=',user.id),('user_id','=',False)]"
         if xml_id == 'sale.sale_order_see_all':
-        	act_window.domain_force = [(1,'=',1)]
+        	act_window.domain_force = "[(1,'=',1)]"
+
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

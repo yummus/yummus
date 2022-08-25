@@ -2,6 +2,7 @@
 
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
+from odoo.exceptions import Warning
 
 
 class StockLocation(models.Model):
@@ -28,4 +29,3 @@ class StockLocation(models.Model):
             user_branch = user_id.sudo().branch_id
             if user_branch and user_branch.id != selected_brach.id:
                 raise UserError("Please select active branch only. Other may create the Multi branch issue. \n\ne.g: If you wish to add other branch then Switch branch from the header and set that.")
-

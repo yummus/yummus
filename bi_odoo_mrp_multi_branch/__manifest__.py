@@ -4,7 +4,7 @@
 
 {
     'name': 'Multiple Branch Unit Operations for Manufacturing',
-    'version': '15.0.0.1',
+    'version': '14.0.0.1',
     'category': 'Manufacturing',
     'summary': 'Multiple Branch Management Multi Branch manufacturing app Multiple Unit Operating unit manufacturing branch mrp branch production multiple branch manufacturing single company with Multi Branches multi company branch mrp unit multi branch mrp multi branch',
     "description": """
@@ -85,7 +85,6 @@ operating-Unit Operation for POS,operating-Unit Operation for Sales,operating-Un
     'demo': [],
     'test': [],
     'installable': True,
-    'license': 'OPL-1',
     'auto_install': False,
     'live_test_url':'https://youtu.be/zXhUMtmgxvI',
     "images":['static/description/Banner.png'],

@@ -29,7 +29,7 @@
             <field name="model">account.payment</field>
             <field name="inherit_id" ref="account.view_account_payment_tree" />
             <field name="arch" type="xml">
-                <field name="name" position="after">
+                <field name="company_id" position="after">
                     <field name="branch_id" optional="hide"/>
                 </field>
             </field>
@@ -41,17 +41,6 @@
             <field name="inherit_id" ref="account.view_move_line_form" />
             <field name="arch" type="xml">
                 <field name="partner_id" position="after">
-                    <field name="branch_id"/>
-                </field>
-            </field>
-        </record>
-
-        <record id="stock_move_line_branch_view_form" model="ir.ui.view" >
-            <field name="name">stock.move.line.inherit.form</field>
-            <field name="model">stock.move.line</field>
-            <field name="inherit_id" ref="stock.view_move_line_form" />
-            <field name="arch" type="xml">
-                <field name="product_id" position="after">
                     <field name="branch_id"/>
                 </field>
             </field>
@@ -99,18 +88,6 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='partner_id']" position="after">
                     <field name="branch_id" attrs="{'readonly' : [('parent_state', '=' , 'posted')]}"/>
-                </xpath>
-            </field>
-        </record>
-
-
-        <record id="stock_view_move_line_tree_inherit_branch" model="ir.ui.view">
-            <field name="name">stock.view.move.line.tree.inherit.branch</field>
-            <field name="model">stock.move.line</field>
-            <field name="inherit_id" ref="stock.view_move_line_tree"/>
-            <field name="arch" type="xml">
-                <xpath expr="//field[@name='product_id']" position="after">
-                    <field name="branch_id" attrs="{'readonly' : [('state', '!=' , 'draft')]}"/>
                 </xpath>
             </field>
         </record>

@@ -3,24 +3,11 @@
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 from itertools import groupby
-class StockMoveLine(models.Model):
-	_inherit = 'stock.move.line'
-
-	branch_id = fields.Many2one('res.branch', related = 'move_id.branch_id')
 
 class StockMove(models.Model):
 	_inherit = 'stock.move'
 
 	branch_id = fields.Many2one('res.branch')
-
-	@api.model
-	def default_get(self, default_fields):
-		res = super(StockMove, self).default_get(default_fields)
-		if self.env.user.branch_id:
-			res.update({
-				'branch_id' : self.env.user.branch_id.id or False
-			})
-		return res
 
 	def _assign_picking(self):
 		""" Try to assign the moves to an existing picking that has not been

@@ -1,7 +1,7 @@
 # Part of BrowseInfo. See LICENSE file for full copyright and licensing details.
 
 from odoo import api, fields, models, _
-from odoo.exceptions import UserError
+from odoo.exceptions import Warning
 
 
 class purchase_order(models.Model):
@@ -51,7 +51,6 @@ class PurchaseOrder(models.Model):
     _inherit = 'purchase.order'
 
     
-    
     @api.model
     def default_get(self,fields):
         res = super(PurchaseOrder, self).default_get(fields)
@@ -76,16 +75,6 @@ class PurchaseOrder(models.Model):
         return res
 
     branch_id = fields.Many2one('res.branch', string='Branch')
-
-    @api.model_create_multi
-    def create(self, vals_list):
-        res = super(PurchaseOrder,self).create(vals_list)
-        sale = self.env['sale.order'].search([('display_name','=',self.origin)],limit=1)  
-        res.update({
-         'branch_id':sale.branch_id.id
-        })
-        return res
-
 
     @api.model
     def _prepare_picking(self):
@@ -145,4 +134,4 @@ class PurchaseOrder(models.Model):
             user_id = self.env['res.users'].browse(self.env.uid)
             user_branch = user_id.sudo().branch_id
             if user_branch and user_branch.id != selected_brach.id:
-                raise UserError("Please select active branch only. Other may create the Multi branch issue. \n\ne.g: If you wish to add other branch then Switch branch from the header and set that.")
+                raise Warning("Please select active branch only. Other may create the Multi branch issue. \n\ne.g: If you wish to add other branch then Switch branch from the header and set that.")
