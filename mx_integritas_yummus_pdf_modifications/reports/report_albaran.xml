@@ -1,0 +1,17 @@
+<odoo>
+<data>
+<template id="integritas_report_albaran_document_mx" inherit_id="stock.report_delivery_document">
+
+        <xpath expr="//div[@t-esc='partner']" position="replace">
+            <br><span t-field="o.partner_id.name"/> </br>
+            <br><span t-field="o.partner_id.street_number"/>/ <span t-field="o.partner_id.street_number2"/> <span t-field="o.partner_id.street_name"/></br>
+            <br><span t-field="o.partner_id.city"/> <span t-field="o.partner_id.state_id"/> <span t-field="o.partner_id.zip"/> </br>
+            <br><span t-field="o.partner_id.l10n_mx_edi_colony"/> </br>
+            <br><span t-field="o.partner_id.country_id"/> </br>
+            <br><span t-field="o.partner_id.phone"/> </br>
+        </xpath>
+
+</template>
+
+</data>
+</odoo>
